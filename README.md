@@ -2,7 +2,7 @@
 
 A CNN–LSTM model that generates captions for images, trained on Flickr8k. The project compares three pretrained CNN encoders (VGG16, ResNet50, InceptionV3) and three decoding methods (greedy search, beam search with k = 3 and k = 5) under identical training conditions, with three random seeds per model and significance testing.
 
-![Demo](demo.gif)
+![Demo](assets/demo.gif)
 
 ## Key Findings
 
@@ -38,9 +38,9 @@ Full results, including BLEU-2/3, METEOR, caption statistics and significance te
 ## Method
 
 ```
-Image → Pretrained CNN (frozen) → feature vector → BatchNorm → initial LSTM state
-                                                                    ↓
-                                        caption so far → Embedding → LSTM → softmax → next word
+Image → CNN (frozen) → features → BatchNorm → LSTM initial state
+Caption so far → Embedding → LSTM → softmax → next word
+
 ```
 
 - **Dataset:** Flickr8k with the standard split (6,000 train / 1,000 validation / 1,000 test images, 5 captions each).
